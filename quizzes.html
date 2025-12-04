@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SES — Quizzes</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: #1a1d24;
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: #d7d9df;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #70a5ff;
+}
+#quiz-container {
+  background: #1b1f29;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  margin-top: 40px;
+}
+.quiz-question {
+  margin-bottom: 20px;
+  color: #cfd2d9;
+}
+.quiz-option {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #262a35;
+  border-radius: 12px;
+  background-color: #14161d;
+  color: #e1e3e8;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.quiz-option:hover {
+  background-color: #262a35;
+}
+.quiz-option.selected {
+  background-color: #3d6ddf;
+  border-color: #3d6ddf;
+  color: white;
+}
+#quiz-feedback {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #70ff70;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+  margin-top: 50px;
+}
+@media (max-width:768px){
+  nav {flex-direction: column; gap: 15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Project SES — Quizzes</h1>
+  <nav>
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/login.html">Logout</a>
+  </nav>
+</header>
+<main class="container">
+  <section id="quiz-container"></section>
+  <p id="quiz-feedback"></p>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module" src="/src/assets/js/quizzes.js"></script>
+<script type="module" src="/src/assets/js/auth.js"></script>
+</body>
+</html>

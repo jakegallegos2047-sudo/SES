@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project SES — Home</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css" />
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.header-dark {
+  background: #1a1d24;
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+nav {
+  display: flex;
+  gap: 25px;
+}
+nav a {
+  font-size: 16px;
+  color: #d7d9df;
+}
+.nav-accent {
+  color: #70a5ff;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 12px 26px;
+  background: #3d6ddf;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: 0.2s;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #5a87ff;
+}
+section {
+  margin-bottom: 50px;
+}
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #1b1f29;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 18px;
+  color: #cfd2d9;
+}
+.feature-cards, .testimonial-cards, .faq-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.card, .test-card, .faq-card {
+  background: #1b1e26;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  border: 1px solid #262a35;
+}
+.card h3, .test-card span, .faq-card h3 {
+  color: #9fb3ff;
+}
+.card p, .test-card p, .faq-card p {
+  color: #c2c5ce;
+}
+.testimonials, .faq, .contact-section {
+  text-align: center;
+}
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.contact-form input, .contact-form textarea {
+  background: #14161d;
+  border: 1px solid #262a35;
+  padding: 12px;
+  border-radius: 12px;
+  color: #e1e3e8;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: #3d6ddf;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+}
+@media (max-width:768px){
+  .header-flex {flex-direction: column; gap:15px;}
+  nav {gap: 15px;}
+}
+</style>
+<body>
+<header class="header-dark">
+  <div class="container header-flex">
+    <h1>Project SES — Social Engineering Simulator</h1>
+    <nav>
+      <a href="/login.html">Login</a>
+      <a href="/dashboard.html" class="nav-accent">Dashboard</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero container">
+    <h2>Master Social Engineering Awareness</h2>
+    <p>Train safely through gamified challenges, simulations, and real-world inspired scenarios.</p>
+    <a class="btn-primary" href="/login.html">Begin Training</a>
+  </section>
+
+  <section class="features container">
+    <h2>Core Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Interactive Quizzes</h3>
+        <p>Engage with scenarios modeled after modern attack vectors.</p>
+      </div>
+      <div class="card">
+        <h3>Mini-Games</h3>
+        <p>Experience hands-on simulations that teach by doing.</p>
+      </div>
+      <div class="card">
+        <h3>Progress Tracking</h3>
+        <p>View your growth over time and earn achievement badges.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials container">
+    <h2>Testimonials</h2>
+    <div class="testimonial-cards">
+      <div class="test-card">
+        <p>“Project SES helped our team spot phishing attempts 3× faster. The simulations feel real but safe.”</p>
+        <span>- Jordan K., Security Analyst</span>
+      </div>
+      <div class="test-card">
+        <p>“Our employees actually enjoy the training now. The gamified approach is a game changer.”</p>
+        <span>- Maria L., HR Director</span>
+      </div>
+      <div class="test-card">
+        <p>“The quizzes are challenging and fun. The awareness boost is noticeable.”</p>
+        <span>- Trevor S., IT Supervisor</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-items">
+      <div class="faq-card">
+        <h3>Is Project SES safe for all employees?</h3>
+        <p>Yes! All simulations and quizzes are safe, gamified, and educational.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Can we track progress for multiple users?</h3>
+        <p>Absolutely, the dashboard provides progress tracking for all participants.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Do I need prior cybersecurity knowledge?</h3>
+        <p>No, Project SES is designed for users of all experience levels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section container">
+    <h2>Contact Us</h2>
+    <p>Have questions or want to integrate Project SES into your organization?</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module" src="/src/assets/js/auth.js"></script>
+</body>
+</html>

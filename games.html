@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SES — Mini-Game</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: #1a1d24;
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: #d7d9df;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #70a5ff;
+}
+.game {
+  background: #1b1f29;
+  padding: 35px 25px;
+  border-radius: 14px;
+  margin-top: 40px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  text-align: center;
+}
+#game-title {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+#game-container {
+  margin-bottom: 20px;
+}
+#game-feedback {
+  font-weight: bold;
+  color: #70ff70;
+  margin-top: 15px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+  margin-top: 50px;
+}
+@media (max-width:768px){
+  nav {flex-direction: column; gap: 15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Mini-Game</h1>
+  <nav>
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/login.html" id="logout-btn">Logout</a>
+  </nav>
+</header>
+<main>
+  <section class="game container">
+    <h2 id="game-title">Loading...</h2>
+    <div id="game-container"></div>
+    <p id="game-feedback"></p>
+  </section>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module" src="/src/assets/js/games.js"></script>
+<script type="module" src="/src/assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Phishing Basics",
+    "questions": [
+      {
+        "question": "You receive an email from IT asking for your password. What should you do?",
+        "options": ["Reply", "Ignore", "Click Link", "Delete Later"],
+        "answer": "Ignore"
+      },
+      {
+        "question": "A friend sends a link you weren’t expecting. What do you do?",
+        "options": ["Click It", "Ask Friend", "Ignore"],
+        "answer": "Ask Friend"
+      }
+    ]
+  }
+]

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SES — Dashboard</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: #1a1d24;
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a, nav button {
+  color: #d7d9df;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+nav a:hover, nav button:hover {
+  color: #70a5ff;
+}
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.dashboard p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #cfd2d9;
+}
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.card {
+  background: #1b1e26;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  border: 1px solid #262a35;
+}
+.card h3 {
+  color: #9fb3ff;
+  margin-bottom: 15px;
+}
+.card button {
+  width: 100%;
+  padding: 12px;
+  background: #3d6ddf;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  transition: 0.2s;
+}
+.card button:hover {
+  background: #5a87ff;
+}
+#dashboard-feedback {
+  text-align: center;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-top: 20px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+  margin-top: 50px;
+}
+.learning-resources {
+  margin-top: 50px;
+}
+.learning-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+.learning-card {
+  background: #1b1e26;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #262a35;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  text-align: center;
+}
+.learning-card h4 {
+  color: #70a5ff;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.learning-card p {
+  color: #cfd2d9;
+  margin-bottom: 10px;
+}
+.learning-card a {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 15px;
+  background: #3d6ddf;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.learning-card a:hover {
+  background: #5a87ff;
+}
+@media (max-width:768px){
+  nav {flex-direction: column; gap: 15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Project SES — Dashboard</h1>
+  <nav>
+    <a href="/index.html">Home</a>
+    <button id="logout-btn">Logout</button>
+  </nav>
+</header>
+<main class="container">
+  <section class="dashboard">
+    <h2>Welcome, <span id="username">User</span>!</h2>
+    <p>Track your progress, complete quizzes, and play mini-games below.</p>
+    <div class="dashboard-cards">
+      <div class="card" id="quizzes-card">
+        <h3>Your Quizzes</h3>
+        <div id="quizzes-container"></div>
+      </div>
+      <div class="card" id="games-card">
+        <h3>Mini-Games</h3>
+        <div id="games-container"></div>
+      </div>
+      <div class="card" id="progress-card">
+        <h3>Progress</h3>
+        <button id="progress-btn">View Progress</button>
+      </div>
+    </div>
+    <section class="learning-resources">
+      <h2 style="text-align:center; color:#9fb3ff;">Learning Resources</h2>
+      <div class="learning-cards">
+        <div class="learning-card">
+          <h4>Social Engineering 101</h4>
+          <p>Learn the fundamentals of social engineering, common attack types, and why humans are the primary target.</p>
+          <a href="https://www.crowdstrike.com/en-us/cybersecurity-101/social-engineering/" target="_blank">Visit Resource</a>
+        </div>
+        <div class="learning-card">
+          <h4>Phishing Awareness</h4>
+          <p>Watch this brief but powerful video explaining how phishing attacks work and how to spot them.</p>
+          <a href="https://www.youtube.com/watch?v=1jfm2E_wvBo" target="_blank">Watch Video</a>
+        </div>
+        <div class="learning-card">
+          <h4>Password Security</h4>
+          <p>NIST’s official guide for creating strong, secure passwords that protect your accounts.</p>
+          <a href="https://www.nist.gov/cybersecurity/how-do-i-create-good-password" target="_blank">Read Guide</a>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="feedback">
+    <p id="dashboard-feedback"></p>
+  </section>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module" src="/src/assets/js/auth.js"></script>
+<script type="module" src="/src/assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Project SES — Progress</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: #1a1d24;
+  padding: 18px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: #d7d9df;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #70a5ff;
+}
+main h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+section {
+  background: #1b1f29;
+  padding: 25px 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+section h3 {
+  color: #9fb3ff;
+  margin-bottom: 15px;
+}
+#quiz-progress, #game-progress {
+  background: #14161d;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #262a35;
+  min-height: 50px;
+  color: #cfd2d9;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+  margin-top: 50px;
+}
+@media (max-width:768px){
+  nav {flex-direction: column; gap: 15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Project SES — Your Progress</h1>
+  <nav>
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="/login.html">Logout</a>
+  </nav>
+</header>
+<main class="container">
+  <h2>Your Progress Overview</h2>
+  <section>
+    <h3>Quizzes</h3>
+    <div id="quiz-progress"></div>
+  </section>
+  <section>
+    <h3>Mini-Games</h3>
+    <div id="game-progress"></div>
+  </section>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module" src="/src/assets/js/progress.js"></script>
+</body>
+</html>

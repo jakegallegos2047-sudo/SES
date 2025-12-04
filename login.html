@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SES — Login</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+body {
+  background-color: #111318;
+  color: #e1e3e8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background: #1a1d24;
+  padding: 18px 0;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5px;
+}
+nav a {
+  color: #d7d9df;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  color: #70a5ff;
+}
+.login {
+  background: #1b1f29;
+  padding: 40px 25px;
+  border-radius: 14px;
+  margin-top: 50px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s ease;
+  animation: fadeCard 0.8s ease;
+}
+@keyframes fadeCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.login:hover {
+  box-shadow: 0 0 20px rgba(61,109,223,0.6), 0 4px 16px rgba(0,0,0,0.5);
+}
+.login h2 {
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+.login input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #262a35;
+  background: #14161d;
+  color: #e1e3e8;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.login input:focus {
+  outline: none;
+  border-color: #3d6ddf;
+  box-shadow: 0 0 10px rgba(61,109,223,0.6);
+}
+.login button {
+  width: 100%;
+  padding: 12px;
+  background: #3d6ddf;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  transition: 0.2s;
+}
+.login button:hover {
+  background: #5a87ff;
+}
+.login a {
+  color: #70a5ff;
+}
+#login-error {
+  margin-top: 10px;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1d24;
+  color: #d7d9df;
+  margin-top: 50px;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Project SES — Social Engineering Simulator</h1>
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/dashboard.html">Dashboard</a>
+  </nav>
+</header>
+<main class="container">
+  <section class="login">
+    <h2>Login to Your Account</h2>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email Address" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p id="login-error"></p>
+    </form>
+    <p>Don't have an account? <a href="/signup.html">Sign Up</a></p>
+  </section>
+</main>
+<footer>
+  <p>Project SES © 2025</p>
+</footer>
+<script type="module">
+  import { login } from '/src/assets/js/auth.js';
+
+  const loginForm = document.getElementById('login-form');
+  const errorElem = document.getElementById('login-error');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    try {
+      const session = await login(email, password);
+      if (session) {
+        window.location.href = '/dashboard.html';
+      } else {
+        errorElem.textContent = 'Login failed. Please check your credentials.';
+      }
+    } catch (err) {
+      errorElem.textContent = err.message;
+    }
+  });
+</script>
+</body>
+</html>

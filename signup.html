@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project SES — Sign Up</title>
+<link rel="stylesheet" href="/src/assets/css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Project SES — Create Account</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/login.html">Login</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="signup">
+    <h2>Create a New Account</h2>
+
+    <form id="signup-form">
+      <input type="email" id="signup-email" placeholder="Email Address" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+      <button type="submit">Sign Up</button>
+      <p id="signup-error" style="color:red;"></p>
+    </form>
+
+    <p>Already have an account? <a href="/login.html">Log In</a></p>
+  </section>
+</main>
+
+<script type="module">
+  import { signup } from '/src/assets/js/auth.js';
+
+  const signupForm = document.getElementById('signup-form');
+  const errorElem = document.getElementById('signup-error');
+
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+    const confirm = document.getElementById('signup-confirm').value;
+
+    if (password !== confirm) {
+      errorElem.textContent = 'Passwords do not match!';
+      return;
+    }
+
+    try {
+      const user = await signup(email, password);
+      if (user) {
+        window.location.href = '/login.html';
+      } else {
+        errorElem.textContent = 'Sign up failed. Please try again.';
+      }
+    } catch (err) {
+      errorElem.textContent = err.message;
+    }
+  });
+</script>
+</body>
+</html>
