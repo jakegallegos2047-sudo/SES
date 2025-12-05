@@ -119,8 +119,8 @@ footer {
 <header>
   <h1>Project SES — Social Engineering Simulator</h1>
   <nav>
-    <a href="/index.html">Home</a>
-    <a href="/dashboard.html">Dashboard</a>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
   </nav>
 </header>
 <main class="container">
@@ -132,7 +132,7 @@ footer {
       <button type="submit">Login</button>
       <p id="login-error"></p>
     </form>
-    <p>Don't have an account? <a href="/signup.html">Sign Up</a></p>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
   </section>
 </main>
 <footer>
@@ -152,7 +152,7 @@ footer {
     try {
       const session = await login(email, password);
       if (session) {
-        window.location.href = '/dashboard.html';
+        window.location.href = 'dashboard.html';
       } else {
         errorElem.textContent = 'Login failed. Please check your credentials.';
       }
