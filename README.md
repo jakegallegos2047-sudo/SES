@@ -1,0 +1,1 @@
+Web-based Social Engineering Simulator designed to help users understand common security risks through interactive scenarios. Users can sign up, log in, and participate in challenges that simulate real-world social engineering attacks in a safe and educational environment.
