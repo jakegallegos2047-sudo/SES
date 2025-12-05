@@ -138,28 +138,30 @@ footer {
 <footer>
   <p>Project SES © 2025</p>
 </footer>
+
 <script type="module">
-  import { login } from '/src/assets/js/auth.js';
+import { login } from '/src/assets/js/auth.js';
 
-  const loginForm = document.getElementById('login-form');
-  const errorElem = document.getElementById('login-error');
+const loginForm = document.getElementById('login-form');
+const errorElem = document.getElementById('login-error');
 
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
 
-    try {
-      const session = await login(email, password);
-      if (session) {
-        window.location.href = 'dashboard.html';
-      } else {
-        errorElem.textContent = 'Login failed. Please check your credentials.';
-      }
-    } catch (err) {
-      errorElem.textContent = err.message;
+  try {
+    const session = await login(email, password);
+    if (session) {
+      window.location.href = 'dashboard.html';
+    } else {
+      errorElem.textContent = 'Login failed. Check credentials.';
     }
-  });
+  } catch (err) {
+    errorElem.textContent = err.message;
+  }
+});
 </script>
+
 </body>
 </html>
