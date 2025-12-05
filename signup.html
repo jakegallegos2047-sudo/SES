@@ -5,6 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project SES — Sign Up</title>
 <link rel="stylesheet" href="/src/assets/css/styles.css">
+<style>
+/* Signup-specific styles */
+.signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.signup input {
+  padding: 12px 15px;
+  border: 1px solid #262a35;
+  border-radius: 10px;
+  background: #14161d;
+  color: #e1e3e8;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.signup input:focus {
+  border-color: #70a5ff;
+  box-shadow: 0 0 8px rgba(112,165,255,0.3);
+}
+.signup button {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #70a5ff;
+  color: #111318;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.signup button:hover {
+  background: #4d85e6;
+}
+.signup p {
+  text-align: center;
+  margin-top: 10px;
+}
+.signup a {
+  color: #70a5ff;
+  text-decoration: none;
+}
+.signup a:hover {
+  text-decoration: underline;
+}
+#signup-error {
+  color: #ff6b6b;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
 </head>
 <body>
 
@@ -27,7 +80,7 @@
       <input type="password" id="signup-password" placeholder="Password" required>
       <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
       <button type="submit">Sign Up</button>
-      <p id="signup-error" style="color:red;"></p>
+      <p id="signup-error"></p>
     </form>
 
     <p>Already have an account? <a href="/login.html">Log In</a></p>
@@ -35,33 +88,34 @@
 </main>
 
 <script type="module">
-  import { signup } from '/src/assets/js/auth.js';
+import { signup } from '/src/assets/js/auth.js';
 
-  const signupForm = document.getElementById('signup-form');
-  const errorElem = document.getElementById('signup-error');
+const signupForm = document.getElementById('signup-form');
+const errorElem = document.getElementById('signup-error');
 
-  signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-    const confirm = document.getElementById('signup-confirm').value;
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+  const confirm = document.getElementById('signup-confirm').value;
 
-    if (password !== confirm) {
-      errorElem.textContent = 'Passwords do not match!';
-      return;
+  if (password !== confirm) {
+    errorElem.textContent = 'Passwords do not match!';
+    return;
+  }
+
+  try {
+    const user = await signup(email, password);
+    if (user) {
+      window.location.href = '/login.html';
+    } else {
+      errorElem.textContent = 'Sign up failed. Please try again.';
     }
-
-    try {
-      const user = await signup(email, password);
-      if (user) {
-        window.location.href = '/login.html';
-      } else {
-        errorElem.textContent = 'Sign up failed. Please try again.';
-      }
-    } catch (err) {
-      errorElem.textContent = err.message;
-    }
-  });
+  } catch (err) {
+    errorElem.textContent = err.message;
+  }
+});
 </script>
+
 </body>
 </html>
